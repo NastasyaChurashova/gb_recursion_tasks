@@ -37,3 +37,28 @@ int AkkermanFunction(int m, int n)
 }
 System.Console.WriteLine(AkkermanFunction(1, 1));
 
+// ****Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы.
+
+int[] CreateArray(int size, int min, int max)
+{
+    int[] array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next(min, max + 1);
+    }
+    return array;
+}
+
+void PrintArrayFromEnd(int[] array, int index)
+{
+    if (index < 0)
+    {
+        return;
+    }
+    System.Console.WriteLine(array[index] + " ");
+    PrintArrayFromEnd(array, index - 1);
+}
+
+int[] createdArray = CreateArray(7, 5, 55);
+
+PrintArrayFromEnd(createdArray, createdArray.Length - 1);
